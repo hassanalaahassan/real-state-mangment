@@ -1,0 +1,79 @@
+<!-- Sidebar Container -->
+<aside
+    [class]="sidebarClasses"
+    [attr.aria-expanded]="!isCollapsed"
+    [attr.data-collapsed]="isCollapsed">
+
+    <!-- Toggle Button -->
+    <button
+        (click)="toggleSidebar($event)"
+        class="absolute -right-3 top-6 z-20 flex h-6 w-6 items-center justify-center rounded-full bg-realty-terracotta-500 hover:bg-realty-terracotta-600 text-white shadow-lg transition-all hover:scale-110 active:scale-95">
+    </button>
+
+    <!-- Logo Section -->
+    <div class="mb-8 border-b border-realty-gray-200 pb-6">
+        <div class="flex items-center gap-3 px-4">
+            <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-realty-blue-500">
+                <span class="text-xl font-bold text-white">🏠</span>
+            </div>
+            <div *ngIf="!isCollapsed" class="transition-all duration-300">
+                <h2 class="text-lg font-bold text-realty-blue-800">Real Estate</h2>
+                <p class="text-xs text-realty-gray-500">Real Estate Solutions</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="flex-1 space-y-1 px-3">
+        <ng-container *ngFor="let item of menuItems">
+            <a
+                [routerLink]="item.route"
+                routerLinkActive="bg-realty-blue-50 border-r-4 border-realty-blue-500 text-realty-blue-700"
+                [routerLinkActiveOptions]="{exact: true}"
+                (click)="setActiveItem(item.id)"
+                [class]="getMenuItemClasses(item.id)"
+                [title]="isCollapsed ? item.label : ''">
+
+                <span class="text-xl">{{item.icon}}</span>
+
+                <span *ngIf="!isCollapsed" class="transition-all duration-300">
+                    {{item.label}}
+                </span>
+
+                <span *ngIf="item.badge && !isCollapsed"
+                      class="ml-auto rounded-full bg-realty-terracotta-100 px-2 py-1 text-xs font-medium text-realty-terracotta-700">
+                    {{item.badge}}
+                </span>
+            </a>
+        </ng-container>
+    </nav>
+
+    <!-- VIP Section -->
+    <div *ngIf="!isCollapsed" class="mt-8 mx-3 p-4 rounded-lg bg-gradient-to-r from-realty-sage-50 to-realty-cream-50 border border-realty-sage-200">
+        <div class="flex items-center gap-3 mb-3">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full bg-realty-sage-500">
+                <span class="text-white">⭐</span>
+            </div>
+            <div>
+                <h3 class="font-semibold text-realty-sage-800">VIP offers</h3>
+                <p class="text-xs text-realty-gray-600">Exclusive discounts</p>
+            </div>
+        </div>
+        <button class="w-full bg-realty-sage-500 hover:bg-realty-sage-600 text-white text-sm font-medium py-2 rounded-lg transition">
+          show offers
+        </button>
+    </div>
+
+    <!-- User Profile -->
+    <div class="mt-auto border-t border-realty-gray-200 pt-4">
+        <div class="flex items-center gap-3 px-4 py-3">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Agent"
+                 alt="Profile"
+                 class="h-9 w-9 rounded-full border-2 border-realty-cream-300">
+            <div *ngIf="!isCollapsed" class="transition-all duration-300">
+                <p class="text-sm font-medium text-realty-blue-800">Hassan Alaa</p>
+                <p class="text-xs text-realty-gray-500">Sales</p>
+            </div>
+        </div>
+    </div>
+</aside>

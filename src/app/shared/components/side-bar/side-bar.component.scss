@@ -1,0 +1,210 @@
+/* Sidebar Animation Styles */
+:host {
+  --sidebar-expanded-width: 256px;
+  --sidebar-collapsed-width: 80px;
+}
+
+/* Ripple Animation */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Active Menu Item Animation */
+.active-menu {
+  background: linear-gradient(90deg,
+    rgba(26, 43, 95, 0.1) 0%,
+    rgba(26, 43, 95, 0.05) 100%
+  ) !important;
+  animation: activeSlideIn 0.3s ease-out;
+
+  &::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 60%;
+    background: linear-gradient(to bottom, #C45C4B, #E56F5F);
+    border-radius: 4px 0 0 4px;
+    animation: slideInRight 0.3s ease-out;
+  }
+}
+
+@keyframes activeSlideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateY(-50%) scaleX(0);
+  }
+  to {
+    transform: translateY(-50%) scaleX(1);
+  }
+}
+
+/* Badge Animation */
+@keyframes badge-in {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-badge-in {
+  animation: badge-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Menu Item Hover Effect */
+nav a {
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateX(8px);
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background: linear-gradient(to bottom, #1A2B5F, #7986B8);
+      border-radius: 0 3px 3px 0;
+      animation: slideInLeft 0.3s ease-out;
+    }
+  }
+
+  &:active {
+    transform: translateX(8px) scale(0.98);
+    transition: transform 0.1s;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Text Reveal Animation */
+.text-reveal {
+  animation: textReveal 0.5s ease-out;
+}
+
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Icon Bounce Animation */
+nav a:hover span:first-child {
+  animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+/* Smooth Width Transition */
+aside {
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+  /* Prevent content jump */
+  & > * {
+    min-width: 0;
+    transition: inherit;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  aside {
+    position: fixed !important;
+    height: 100vh;
+    transform: translateX(0);
+    transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+
+    &[data-collapsed="true"] {
+      transform: translateX(calc(-100% + 80px));
+
+      &:hover {
+        transform: translateX(0);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+/* Body classes for main content adjustment */
+.sidebar-collapsed main {
+  margin-left: 80px !important;
+}
+
+.sidebar-expanded main {
+  margin-left: 256px !important;
+}
+/* Ripple Animation */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* إضافة class للـ ripple */
+.ripple-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%, -50%);
+  transform-origin: 50% 50%;
+}
+
+.ripple-effect:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
