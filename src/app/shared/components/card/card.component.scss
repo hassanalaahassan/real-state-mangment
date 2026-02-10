@@ -91,19 +91,13 @@
   animation: btnPulse 2s infinite;
 }
 
-/* =================== */
-/* Container للـ Grid */
-/* =================== */
 .properties-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 24px;
-  align-items: stretch; /* يجعل كل الكاردس تمتد بنفس الطول */
+  align-items: stretch;
 }
 
-/* =================== */
-/* Card Base Styles - نفس الارتفاع */
-/* =================== */
 .property-card {
   background: white;
   border-radius: 16px;
@@ -130,20 +124,14 @@
   transition: transform 0.1s;
 }
 
-/* =================== */
-/* Grid View - عرض الشبكة */
-/* =================== */
+
 .property-card-grid {
   width: 100%;
   max-width: 380px;
-  /* ارتفاع ثابت للكارد في Grid View */
   min-height: 550px;
   max-height: 600px;
 }
 
-/* =================== */
-/* List View - عرض القائمة */
-/* =================== */
 .property-card-list {
   width: 100%;
   display: flex;
@@ -162,14 +150,11 @@
   flex-direction: column;
 }
 
-/* =================== */
-/* Card Image - صورة الكارد */
-/* =================== */
 .card-image-container {
   position: relative;
   height: 220px;
   overflow: hidden;
-  flex-shrink: 0; /* لا ينكمش */
+  flex-shrink: 0;
 }
 
 .card-image-container .image-wrapper {
@@ -214,9 +199,6 @@
   background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
 }
 
-/* =================== */
-/* Badges - البادجات */
-/* =================== */
 .featured-badge {
   padding: 6px 12px;
   font-size: 0.75rem;
@@ -235,9 +217,6 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-/* =================== */
-/* Favorite Button - زر المفضلة */
-/* =================== */
 .favorite-btn {
   width: 40px;
   height: 40px;
@@ -267,9 +246,6 @@
   background: rgba(254, 202, 202, 1);
 }
 
-/* =================== */
-/* Card Content - محتوى الكارد */
-/* =================== */
 .card-content {
   padding: 20px;
   flex: 1; /* يأخذ المساحة المتبقية */
@@ -278,9 +254,6 @@
   min-height: 330px; /* ارتفاع أدنى للمحتوى */
 }
 
-/* =================== */
-/* Price Section - قسم السعر */
-/* =================== */
 .price-section {
   margin-bottom: 16px;
 }
@@ -299,12 +272,9 @@
   margin-top: 4px;
 }
 
-/* =================== */
-/* Title Section - قسم العنوان */
-/* =================== */
 .title-section {
   margin-bottom: 16px;
-  flex-shrink: 0; /* لا ينكمش */
+  flex-shrink: 0;
 }
 
 .title-section .property-title {
@@ -314,10 +284,10 @@
   color: #111827;
   margin-bottom: 8px;
   display: -webkit-box;
-  -webkit-line-clamp: 2; /* سطرين فقط */
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  min-height: 56px; /* ارتفاع ثابت للعنوان */
+  min-height: 56px;
   max-height: 56px;
 }
 
@@ -335,13 +305,10 @@
   text-overflow: ellipsis;
 }
 
-/* =================== */
-/* Details Section - قسم التفاصيل */
-/* =================== */
 .details-section {
   margin-bottom: 16px;
-  flex-shrink: 0; /* لا ينكمش */
-  min-height: 140px; /* ارتفاع ثابت للتفاصيل */
+  flex-shrink: 0;
+  min-height: 140px;
 }
 
 .details-section .property-type {
@@ -382,15 +349,12 @@
   font-weight: 500;
 }
 
-/* =================== */
-/* Amenities - المميزات */
-/* =================== */
 .amenities-section {
   margin-bottom: 16px;
-  flex: 1; /* يأخذ المساحة المتبقية */
+  flex: 1;
   min-height: 60px;
   max-height: 80px;
-  overflow-y: auto; /* scroll داخلي إذا زاد المحتوى */
+  overflow-y: auto;
 }
 
 .amenities-section .amenities-list {
@@ -415,7 +379,6 @@
   font-weight: 500;
 }
 
-/* Custom scrollbar for amenities */
 .amenities-section::-webkit-scrollbar {
   width: 4px;
 }
@@ -434,16 +397,13 @@
   background: #a8a8a8;
 }
 
-/* =================== */
-/* Actions - الأزرار (ثابتة في الأسفل) */
-/* =================== */
 .actions-section {
   display: flex;
   gap: 12px;
   padding-top: 16px;
   border-top: 1px solid #e5e7eb;
-  margin-top: auto; /* هذا يدفع الأزرار للأسفل */
-  flex-shrink: 0; /* لا ينكمش */
+  margin-top: auto;
+  flex-shrink: 0;
 }
 
 .actions-section .contact-btn {
@@ -493,9 +453,6 @@
   color: white;
 }
 
-/* =================== */
-/* Responsive - تصميم متجاوب */
-/* =================== */
 @media (max-width: 768px) {
   .properties-container {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -568,9 +525,6 @@
   }
 }
 
-/* =================== */
-/* Hover Effects - تأثيرات التمرير */
-/* =================== */
 .group .property-image {
   transition-delay: 0.1s;
 }
@@ -583,9 +537,7 @@
   transform: translateX(4px);
 }
 
-/* =================== */
-/* Loading States - حالات التحميل */
-/* =================== */
+
 .property-card.loading .image-skeleton,
 .property-card.loading .text-skeleton {
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -603,9 +555,7 @@
   width: 60%;
 }
 
-/* =================== */
-/* Color Classes - ألوان الأنواع */
-/* =================== */
+
 .property-type-apartment {
   background-color: #e8f0fe;
   color: #1e40af;
@@ -626,9 +576,7 @@
   color: #92400e;
 }
 
-/* =================== */
-/* Color Classes - ألوان الحالة */
-/* =================== */
+
 .status-for-sale {
   background-color: #fee2e2;
   color: #991b1b;
@@ -644,16 +592,10 @@
   color: #374151;
 }
 
-/* =================== */
-/* Additional Helper Classes */
-/* =================== */
-
-/* لضمان نفس العرض للكاردز */
 .property-card {
   width: 100%;
 }
 
-/* Grid container للتحكم في المسافات */
 .grid-layout {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -661,7 +603,6 @@
   align-items: start;
 }
 
-/* لضمان أن المحتوى لا يتجاوز الحدود */
 .card-content-inner {
   flex: 1;
   display: flex;
