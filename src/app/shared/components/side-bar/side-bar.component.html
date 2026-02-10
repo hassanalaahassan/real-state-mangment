@@ -25,7 +25,7 @@
 
     <!-- Navigation Menu -->
     <nav class="flex-1 space-y-1 px-3">
-        <ng-container *ngFor="let item of menuItems">
+        <ng-container *ngFor="let item of menuItems()">
             <a
                 [routerLink]="item.route"
                 routerLinkActive="bg-realty-blue-50 border-r-4 border-realty-blue-500 text-realty-blue-700"

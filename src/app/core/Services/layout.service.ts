@@ -13,7 +13,7 @@ export class LayoutStore {
   private _sidebarCollapsed = signal(false);
   private _showUserMenu = signal(false);
   private _currentRoute = signal('');
-  private _isMobileView = signal(false);
+  private _isMobileView = signal(window.innerWidth < 768);
 
   // Page titles mapping
   private pageTitles: Record<string, PageInfo> = {
