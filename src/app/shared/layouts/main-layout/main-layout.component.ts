@@ -1,13 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, WritableSignal, signal } from '@angular/core';
 import { LayoutStore } from '../../../core/Services/layout.service';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { SidebarComponent } from "../../components/side-bar/side-bar.component";
 import { TopBarComponent } from "../../components/top-bar/top-bar.component";
+import { IProperty } from '../../../core/models/property.model';
+import { PROPERTIES_DATA } from '../../../core/constants/property';
+import { CardComponent } from "../../components/card/card.component";
 
 @Component({
   selector: 'app-main-layout',
-  imports: [SidebarComponent, TopBarComponent, RouterOutlet],
+  imports: [SidebarComponent, TopBarComponent, RouterOutlet, CardComponent],
   templateUrl: './main-layout.component.html',
   styleUrl: './main-layout.component.scss'
 })
@@ -15,6 +18,8 @@ export class MainLayoutComponent {
 // Inject stores
    layoutStore = inject(LayoutStore);
   private router = inject(Router);
+
+  property:WritableSignal<IProperty[]> = signal(PROPERTIES_DATA);
 
   // Expose signals for template
   readonly sidebarCollapsed = this.layoutStore.sidebarCollapsed;

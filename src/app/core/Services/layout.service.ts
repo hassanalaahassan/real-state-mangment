@@ -17,7 +17,7 @@ export class LayoutStore {
 
   // Page titles mapping
   private pageTitles: Record<string, PageInfo> = {
-    '/': { title: 'Dashboard', subtitle: 'Welcome back, Mohamed' },
+    '/': { title: 'Premium Realty', subtitle: 'Welcome back, Hassan' },
     '/properties': { title: 'Properties', subtitle: 'Manage your properties' },
     '/vip': { title: 'VIP Properties', subtitle: 'Exclusive VIP offers' },
     '/contact': { title: 'Contact Us', subtitle: 'Get in touch with us' },
