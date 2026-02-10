@@ -6,7 +6,7 @@
 
     <!-- Toggle Button -->
     @if (!inMobileView()) {
-      <button
+    <button
         (click)="toggleSidebar($event)"
         class="absolute -right-3 top-6 z-20 flex h-6 w-6 items-center justify-center rounded-full bg-realty-terracotta-500 hover:bg-realty-terracotta-600 text-white shadow-lg transition-all hover:scale-110 active:scale-95">
     </button>
@@ -51,7 +51,7 @@
     </nav>
 
     <!-- VIP Section -->
-    <div *ngIf="!isCollapsed" class="mt-8 mx-3 p-4 rounded-lg bg-gradient-to-r from-realty-sage-50 to-realty-cream-50 border border-realty-sage-200">
+    <div *ngIf="!isCollapsed" class="mt-8 mx-3 mb-2 p-4 rounded-lg bg-gradient-to-r from-realty-sage-50 to-realty-cream-50 border border-realty-sage-200">
         <div class="flex items-center gap-3 mb-3">
             <div class="flex h-10 w-10 items-center justify-center rounded-full bg-realty-sage-500">
                 <span class="text-white">⭐</span>
