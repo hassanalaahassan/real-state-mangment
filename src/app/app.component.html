@@ -1,3 +1,6 @@
 <main class="h-dvh overflow-hidden">
   <app-main-layout/>
 </main>
+@if (isLoading()) {
+  <app-loader/>
+}

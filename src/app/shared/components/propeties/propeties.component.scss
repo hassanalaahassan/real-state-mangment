@@ -1,0 +1,15 @@
+/* الكارد يبدأ مخفي */
+app-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.show-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+app-card:nth-child(3n+1) { transition-delay: 0.06s; }
+app-card:nth-child(3n+2) { transition-delay: 0.08s; }
+app-card:nth-child(3n+3) { transition-delay: 0.1s; }

@@ -1,0 +1,38 @@
+<div class="relative w-64">
+
+  <!-- Button -->
+  <button
+    (click)="toggle()"
+    class="flex w-full items-center justify-between rounded-xl border border-realty-sage-300 bg-white px-4 py-2.5 text-sm font-medium shadow-sm transition hover:border-realty-sage-400 focus:outline-none focus:ring-2 focus:ring-realty-sage-200"
+  >
+    {{ selectedLabel() }}
+
+    <svg
+      class="h-4 w-4 transition-transform duration-200"
+      [class.rotate-180]="isOpen()"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <!-- Dropdown -->
+  <div
+    *ngIf="isOpen()"
+    class="absolute z-20 mt-2 w-full origin-top rounded-xl border border-gray-200 bg-white shadow-lg transition-all duration-200 animate-dropdown"
+  >
+    <ul class="py-2 text-sm text-realty-gray-500">
+      <li
+        *ngFor="let type of propertyTypes"
+        (click)="select(type.value)"
+        class="cursor-pointer px-4 py-2 transition hover:bg-realty-sage-100 hover:text-realty-gray-800"
+      >
+        {{ type.label }}
+      </li>
+    </ul>
+  </div>
+
+</div>

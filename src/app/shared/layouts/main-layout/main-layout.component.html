@@ -23,15 +23,7 @@
     </app-top-bar>
 
     <!-- Page Content -->
-    <div class="p-6 grid grid-cols-3 gap-2 overflow-y-scroll max-h-[calc(100vh-80px)]">
-      <!-- <router-outlet/> -->
-       @for (item of property(); track $index) {
-        <app-card
-          [property]="item"
-          class="mb-6 animate-fade-in-up col-span-3 md:col-span-1"
-        />
-       }
-    </div>
+    <app-propeties/>
   </main>
 </div>
 

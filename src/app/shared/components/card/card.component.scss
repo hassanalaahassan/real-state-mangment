@@ -107,8 +107,6 @@
   position: relative;
   cursor: pointer;
   will-change: transform, box-shadow;
-
-  /* جعل الكارد يأخذ كل الارتفاع المتاح */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -122,32 +120,6 @@
 .property-card:active {
   transform: translateY(-4px);
   transition: transform 0.1s;
-}
-
-
-.property-card-grid {
-  width: 100%;
-  max-width: 380px;
-  min-height: 550px;
-  max-height: 600px;
-}
-
-.property-card-list {
-  width: 100%;
-  display: flex;
-  min-height: 240px;
-  max-height: 300px;
-}
-
-.property-card-list .card-image-container {
-  flex: 0 0 300px;
-}
-
-.property-card-list .card-content {
-  flex: 1;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
 }
 
 .card-image-container {
@@ -454,15 +426,6 @@
 }
 
 @media (max-width: 768px) {
-  .properties-container {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-  }
-
-  .property-card-grid {
-    max-width: 100%;
-    min-height: 520px;
-  }
 
   .property-card-list {
     flex-direction: column;
@@ -507,12 +470,6 @@
   .price-section .price-text {
     font-size: 1.5rem;
   }
-
-  .property-card-grid,
-  .property-card-list {
-    min-height: 480px;
-    max-height: none;
-  }
 }
 
 @media (max-width: 480px) {
@@ -555,7 +512,6 @@
   width: 60%;
 }
 
-
 .property-type-apartment {
   background-color: #e8f0fe;
   color: #1e40af;
@@ -596,12 +552,6 @@
   width: 100%;
 }
 
-.grid-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: 24px;
-  align-items: start;
-}
 
 .card-content-inner {
   flex: 1;
