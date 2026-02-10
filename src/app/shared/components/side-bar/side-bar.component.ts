@@ -44,7 +44,7 @@ export class SidebarComponent implements OnInit {
   }
 
   get sidebarClasses(): string {
-    const baseClasses = 'h-screen max-h-screen relative flex flex-col h-screen bg-white border-r border-realty-gray-200 shadow-xl transition-all duration-300 ease-in-out z-30';
+    const baseClasses = 'h-dvh max-h-dvh relative flex flex-col h-screen bg-white border-r border-realty-gray-200 shadow-xl transition-all duration-300 ease-in-out z-30 py-2 overflow-y-auto';
     const widthClass = this.isCollapsed ? 'w-20' : 'w-64';
     return `${baseClasses} ${widthClass} ${this.inMobileView() && this.isCollapsed ? '-translate-x-full': '-translate-x-0'}`;
   }
